@@ -21,7 +21,7 @@ typedef struct {
 typedef struct {
     int id;          // 1 ou 2
     Recursos rec;    // recursos do jogador
-    Tree* posicao;     // ponteiro para o nó atual na árvore
+    arvore* posicao;     // ponteiro para o nó atual na árvore
 } Player;
 
 void inicializarPlayers(Player* p1, Player* p2, Tree* extremoEsq, Tree* extremoDir) {
