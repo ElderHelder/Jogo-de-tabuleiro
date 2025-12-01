@@ -2,7 +2,8 @@
 
 /*Primeiro crio uma arvore com galho esquerdo, direito e conteudo proprio */
 typedef struct tree {
-  	int info;
+  	int casa;
+    char* nome;
   	struct tree *esq;
  	struct tree *dir;
 } arvore;
@@ -13,7 +14,8 @@ arvore *insere(arvore *raiz, int valor) {
 /*Alocando espaço e um endereço para a raiz, indicando que os galhos estão vazios, quando a arvore recursivamente chegar em um galho vazio, vai criar ele e seus galhos, dando valor e endereço*/
     if (raiz == NULL) {
         arvore *folha = (arvore*) malloc(sizeof(arvore));
-        folha->info = valor;
+        folha->casa = valor;
+        folha->nome = 
         folha->dir = NULL;
         folha->esq = NULL;
 
