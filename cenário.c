@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+char tipos[3] = {"rnb"};
 /*Primeiro crio uma arvore com galho esquerdo, direito e conteudo proprio */
 typedef struct tree {
   	int casa;
@@ -11,9 +12,10 @@ typedef struct tree {
 
 void Define(arvore** folha){
 static int casa = 1;
+
 folha->casa = casa;
 folha->nome;
-folha->tipo;
+folha->tipo = tipos[];
 casa++;
 }
 
