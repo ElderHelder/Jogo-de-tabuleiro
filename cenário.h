@@ -1,5 +1,8 @@
 #include <stdio.h>
-char* nomes_cenarios[15] = {"Núcleo-x", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "castelo", "igreja", "lago", "bosque", "vulcão", "nevada", "ruinas", "esconderijo"};
+
+//nota: para inicializar o tabuleiro crie a arvore e defina as 15 casas na função principal usando a função insere, tambem use srand no main, a raiz deve ser a casa 1
+
+char* nomes_cenarios[15] = {"Núcleo-x", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "castelo", "igreja", "lago", "bosque", "vulcão", "nevada", "ruinas", "esconderijo"}; //nome da casa
 char tipos[3] = {'r', 'n', 'b'};
 /*Primeiro crio uma arvore com galho esquerdo, direito e conteudo proprio */
 typedef struct tree {
@@ -40,13 +43,11 @@ arvore *insere(arvore *raiz, int valor, char *nome) {
 }
 
 // Função que vai visitar todas as casas e defini-las
-void imprimeInorder(arvore *raiz) {
+void ponteiro_visitante(arvore *raiz) {
     if (raiz == NULL)
         return;
 /*define a último esquerda e vai voltando, quando definir todas as esquerdas, vai para a direita e define toda a esquerda dele, definindo todas as casas*/
-    imprimeInorder(raiz->esq);
+    ponteiro_visitante(raiz->esq);
     Define(&raiz);
-    imprimeInorder(raiz->dir);
+    ponteiro_visitante(raiz->dir);
 }
-
-
