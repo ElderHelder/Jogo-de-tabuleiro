@@ -1,6 +1,6 @@
 #include <stdio.h>
-char* nomes_cenarios[15] = {"bosque", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "castelo", "igreja", "lago", "Núcleo-x", "vulcão", "nevada", "ruinas", "esconderijo"}
-char tipos[3] = {"rnb"};
+char* nomes_cenarios[15] = {"Núcleo-x", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "castelo", "igreja", "lago", "bosque", "vulcão", "nevada", "ruinas", "esconderijo"};
+char tipos[3] = {'r', 'n', 'b'};
 /*Primeiro crio uma arvore com galho esquerdo, direito e conteudo proprio */
 typedef struct tree {
   	int casa;
@@ -11,12 +11,9 @@ typedef struct tree {
 } arvore;
 
 void Define(arvore** folha){
-static int casa = 1;
 static int indice_tipo = 0;
-folha->casa = casa;
-folha->nome = nomes_cenarios[casa-1];
-folha->tipo = tipos[indice_tipo];
-casa++;
+(*folha)->nome = nomes_cenarios[(*folha)->casa];
+(*folha)->tipo = tipos[rand() % 3];
 indice_tipo++;
 }
 
@@ -34,7 +31,7 @@ arvore *insere(arvore *raiz, int valor, char *nome) {
         return folha;
     }
 
-    if (valor > raiz->info)
+    if (casa > raiz->casa)
         raiz->dir = insere(raiz->dir, valor);
     else
         raiz->esq = insere(raiz->esq, valor);
@@ -42,13 +39,13 @@ arvore *insere(arvore *raiz, int valor, char *nome) {
     return raiz;
 }
 
-// Função imprime elementos in-order
+// Função que vai visitar todas as casas e defini-las
 void imprimeInorder(arvore *raiz) {
     if (raiz == NULL)
         return;
-/*imprime o último esquerdo e vai voltando, quando imprimir todas as esquerdas, vai para a direita e imprime toda a esquerda dele, imprimindo em ordem*/
+/*define a último esquerda e vai voltando, quando definir todas as esquerdas, vai para a direita e define toda a esquerda dele, definindo todas as casas*/
     imprimeInorder(raiz->esq);
-    raiz->
+    Define(&raiz);
     imprimeInorder(raiz->dir);
 }
 
