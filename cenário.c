@@ -1,5 +1,5 @@
 #include <stdio.h>
-char* nomes_cenários[15] = {"bosque", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "castelo", "igreja", "lago", "Núcleo-x", "vulcão", "nevada", "ruinas", "esconderijo"}
+char* nomes_cenarios[15] = {"bosque", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "castelo", "igreja", "lago", "Núcleo-x", "vulcão", "nevada", "ruinas", "esconderijo"}
 char tipos[3] = {"rnb"};
 /*Primeiro crio uma arvore com galho esquerdo, direito e conteudo proprio */
 typedef struct tree {
@@ -14,7 +14,7 @@ void Define(arvore** folha){
 static int casa = 1;
 static int indice_tipo = 0;
 folha->casa = casa;
-folha->nome;
+folha->nome = nomes_cenarios[casa-1];
 folha->tipo = tipos[indice_tipo];
 casa++;
 indice_tipo++;
@@ -28,7 +28,6 @@ arvore *insere(arvore *raiz, int valor, char *nome) {
     if (raiz == NULL) {
         arvore *folha = (arvore*) malloc(sizeof(arvore));
         folha->casa = valor;
-        folha->nome = nome;
         folha->dir = NULL;
         folha->esq = NULL;
 
