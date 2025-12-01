@@ -4,18 +4,28 @@
 typedef struct tree {
   	int casa;
     char* nome;
+    char tipo; //recurso é r, normal é n, batalha é b
   	struct tree *esq;
  	struct tree *dir;
 } arvore;
+
+void Define(arvore** folha){
+static int casa = 1;
+folha->casa = casa;
+node->char* nome;
+
+casa++;
+}
+
 /* Função que insere elemento na árvore, retorna o tipo arvore*/
-arvore *insere(arvore *raiz, int valor) {
+arvore *insere(arvore *raiz, int valor, char *nome) {
 
     // Árvore vazia, o novo nó será a raiz
 /*Alocando espaço e um endereço para a raiz, indicando que os galhos estão vazios, quando a arvore recursivamente chegar em um galho vazio, vai criar ele e seus galhos, dando valor e endereço*/
     if (raiz == NULL) {
         arvore *folha = (arvore*) malloc(sizeof(arvore));
         folha->casa = valor;
-        folha->nome = 
+        folha->nome = nome;
         folha->dir = NULL;
         folha->esq = NULL;
 
@@ -36,6 +46,8 @@ void imprimeInorder(arvore *raiz) {
         return;
 /*imprime o último esquerdo e vai voltando, quando imprimir todas as esquerdas, vai para a direita e imprime toda a esquerda dele, imprimindo em ordem*/
     imprimeInorder(raiz->esq);
-    printf("%d ", raiz->info);
+    raiz->
     imprimeInorder(raiz->dir);
 }
+
+
