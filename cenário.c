@@ -12,8 +12,8 @@ typedef struct tree {
 void Define(arvore** folha){
 static int casa = 1;
 folha->casa = casa;
-node->char* nome;
-
+folha->nome;
+folha->tipo;
 casa++;
 }
 
