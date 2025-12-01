@@ -24,7 +24,7 @@ typedef struct {
     arvore* posicao;     // ponteiro para o nó atual na árvore
 } Player;
 
-void inicializarPlayers(Player* p1, Player* p2, Tree* extremoEsq, Tree* extremoDir) {
+void inicializarPlayers(Player* p1, Player* p2, arvore* extremoEsq, arvore* extremoDir) {
     p1->id = 1;
     p1->rec.arma = 5;
     p1->rec.escudo = 5;
