@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
-//nota: para inicializar o tabuleiro crie a arvore e defina as 15 casas na função principal usando a função insere, tambem use srand no main, a raiz deve ser a casa 1
+//nota: para inicializar o tabuleiro crie a arvore e defina as 15 casas na função principal usando a função insere, tambem use srand no main, a raiz deve ser a casa 7
 
-char* nomes_cenarios[15] = {"Núcleo-x", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "castelo", "igreja", "lago", "bosque", "vulcão", "nevada", "ruinas", "esconderijo"}; //nome da casa
+char* nomes_cenarios[15] = {"castelo", "cemiterio", "jardim", "floresta", "deserto", "cidade", "vila", "Núcleo-x", "igreja", "lago", "bosque", "vulcão", "nevada", "ruinas", "esconderijo"}; //nome da casa
 char tipos[3] = {'r', 'n', 'b'};
 /*Primeiro crio uma arvore com galho esquerdo, direito e conteudo proprio */
 typedef struct tree {
@@ -14,14 +16,12 @@ typedef struct tree {
 } arvore;
 
 void Define(arvore** folha){
-static int indice_tipo = 0;
 (*folha)->nome = nomes_cenarios[(*folha)->casa];
 (*folha)->tipo = tipos[rand() % 3];
-indice_tipo++;
 }
 
 /* Função que insere elemento na árvore, retorna o tipo arvore*/
-arvore *insere(arvore *raiz, int valor, char *nome) {
+arvore *insere(arvore *raiz, int valor) {
 
     // Árvore vazia, o novo nó será a raiz
 /*Alocando espaço e um endereço para a raiz, indicando que os galhos estão vazios, quando a arvore recursivamente chegar em um galho vazio, vai criar ele e seus galhos, dando valor e endereço*/
@@ -34,7 +34,7 @@ arvore *insere(arvore *raiz, int valor, char *nome) {
         return folha;
     }
 
-    if (casa > raiz->casa)
+    if (valor > raiz->casa)
         raiz->dir = insere(raiz->dir, valor);
     else
         raiz->esq = insere(raiz->esq, valor);
@@ -50,4 +50,15 @@ void ponteiro_visitante(arvore *raiz) {
     ponteiro_visitante(raiz->esq);
     Define(&raiz);
     ponteiro_visitante(raiz->dir);
+}
+
+void tabuleirizador(arvore** raiz){
+*raiz = insere(*raiz, 7);
+int a = 0;
+while(a != 15){
+    if(a != 7)
+    *raiz = insere(*raiz, a);
+    a++;
+}
+ponteiro_visitante(*raiz);
 }
