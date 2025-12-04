@@ -15,22 +15,19 @@ typedef struct tree {
  	struct tree *dir;
 } arvore;
 
-void Define(arvore** folha){
-(*folha)->nome = nomes_cenarios[(*folha)->casa];
-(*folha)->tipo = tipos[rand() % 3];
+void Define(arvore* folha){
+    folha->nome = nomes_cenarios[folha->casa];
+    folha->tipo = tipos[rand() % 3];
 }
 
-/* Função que insere elemento na árvore, retorna o tipo arvore*/
 arvore *insere(arvore *raiz, int valor) {
-
-    // Árvore vazia, o novo nó será a raiz
-/*Alocando espaço e um endereço para a raiz, indicando que os galhos estão vazios, quando a arvore recursivamente chegar em um galho vazio, vai criar ele e seus galhos, dando valor e endereço*/
     if (raiz == NULL) {
-        arvore *folha = (arvore*) malloc(sizeof(arvore));
+        arvore *folha = malloc(sizeof(arvore));
         folha->casa = valor;
-        folha->dir = NULL;
+        folha->nome = NULL;
+        folha->tipo = 0;
         folha->esq = NULL;
-
+        folha->dir = NULL;
         return folha;
     }
 
@@ -46,9 +43,9 @@ arvore *insere(arvore *raiz, int valor) {
 void ponteiro_visitante(arvore *raiz) {
     if (raiz == NULL)
         return;
-/*define a último esquerda e vai voltando, quando definir todas as esquerdas, vai para a direita e define toda a esquerda dele, definindo todas as casas*/
+
     ponteiro_visitante(raiz->esq);
-    Define(&raiz);
+    Define(raiz);
     ponteiro_visitante(raiz->dir);
 }
 
