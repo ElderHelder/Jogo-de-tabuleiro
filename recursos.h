@@ -1,13 +1,13 @@
 #include <time.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct { //recursos ganhados
     int arma;
     int escudo;
     int energia;
 } Recursos;
 
-typedef enum {
+typedef enum { //tipos de recursos
     RECURSO_ARMA,
     RECURSO_ESCUDO,
     RECURSO_ENERGIA
