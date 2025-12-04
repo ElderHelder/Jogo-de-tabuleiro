@@ -46,9 +46,9 @@ void jogo(arvore* raiz, Player* hero, Player* villain)
 printf("vilao está no(a) %s\n", (villain->posicao)->nome);
 
 puts("O que o heroi irá fazer? 1 pra cima, 2 pra esquerda-baixo, 3 pra direita-baixo");
-hero->posicao = acao(getint(), hero->posicao, (hero->posicao)->casa);
+hero->posicao = acao(getint(), raiz, (hero->posicao)->casa);
 puts("O que o vilao irá fazer? 1 pra cima, 2 pra esquerda-baixo, 3 pra direita-baixo");
-villain->posicao = acao(getint(), villain->posicao, (villain->posicao)->casa);
+villain->posicao = acao(getint(), raiz, (villain->posicao)->casa);
 
 jogo(raiz, hero, villain);
 }
