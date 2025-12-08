@@ -52,10 +52,20 @@ void ponteiro_visitante(arvore *raiz) {
 void tabuleirizador(arvore** raiz){
 *raiz = insere(*raiz, 7);
 int a = 0;
-while(a != 15){
-    if(a != 7)
+a = 1; \*ordem especial de inserções para uma arvore balanceada*\
+while(a < 7){
+    *raiz = insere(*raiz, 1 + 2*a);
+    a += 4;
+}
+a = 1;
+while(a < 14){
     *raiz = insere(*raiz, a);
-    a++;
+    a += 4;
+}
+a = 0;
+while(a < 15){
+    *raiz = insere(*raiz, a);
+    a += 2;
 }
 ponteiro_visitante(*raiz);
 }
