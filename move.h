@@ -78,12 +78,23 @@ void checar_tipo(Player* p) { /*dinamizando os cenarios de acordo com os tipos q
     int escolha, acaso;
 
     if (tipo_atual == 'r') {
+if(rand()%100 == 0)
+{
+printf("%s chegou em um estágio *de recurso* e ganhou quantidades aleatorias de recursos!\n",
+               p->id == 1 ? "Herói" : "Vilão");
+        p->rec.arma += rand()%11;
+        p->rec.escudo += rand()%11;
+        p->rec.energia += rand()%11;
+}
+else
+{
         printf("%s chegou em um estágio *de recurso* e ganhou 1 arma, 1 escudo e 1 energia!\n",
                p->id == 1 ? "Herói" : "Vilão");
 
         p->rec.arma++;
         p->rec.escudo++;
         p->rec.energia++;
+}
     }
 
     else if (tipo_atual == 'n') {
