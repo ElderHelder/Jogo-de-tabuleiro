@@ -5,7 +5,7 @@ arvore* inicializa(){
 return NULL;
 }
 
-arvore* ExtEsq(arvore *raiz)
+arvore* ExtEsq(arvore *raiz) /*para indicar onde o jogador comeca, o mesmo para ExtDir*/
 {
     while(raiz->esq != NULL) raiz = raiz->esq;
     return raiz;
@@ -17,7 +17,7 @@ arvore* ExtDir(arvore *raiz)
     return raiz;
 }
 
-arvore* acao(int x, arvore* raiz, int casa, arvore* atual, Player *p){
+arvore* acao(int x, arvore* raiz, int casa, arvore* atual, Player *p){ /*sobe e desce o jogador, verificado comandos errados ou falhas na memoria e verifica se os recursos sao validos para chegar no nucleo*/
 arvore* pai = vasculha(raiz, casa);
 if(pai == NULL)
 {
@@ -48,7 +48,7 @@ else
 }
 
 void jogo(arvore* raiz, Player* hero, Player* villain)
-{
+{/*o jogo em si esta aqui, essa funcao se chama ate o fim do jogo(ela por si so nao para, mas as funcoes que ela chama tem poder de fechar o programa) ela diz que o local e ensina os movimentos, deixando para as outras funcoes que ela chama para dizer recursos, situacao e mover*/
     printf("heroi está no(a) %s\n", (hero->posicao)->nome);
 printf("vilao está no(a) %s\n", (villain->posicao)->nome);
 
