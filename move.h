@@ -1,10 +1,11 @@
 #include "cenario.h"
 #include "recursos.h"
 
-int passadas_vulcao = 0;
+//verificando frequencia
+int passadas_vulcao = 0; 
 int passadas_floresta = 0;
 
-int getint(){
+int getint(){ //facilitando pegar inteiros
 int a;
 scanf("%d", &a);
 return a;
@@ -25,9 +26,9 @@ arvore* vasculha(arvore *raiz, int casa) { //Função baseada na busca inorder p
     return vasculha(raiz->dir, casa);
 }
 
-void checar_estagio(Player* p) {
+void checar_estagio(Player* p) { /*cenarios especiais e cenario final*/
     int casa = p->posicao->casa;
-if(casa%2 == 0)
+if(casa%2 == 0)//para os nos folhas
 puts("nao va para baixo");
     switch(casa) {
 
@@ -72,7 +73,7 @@ puts("nao va para baixo");
     }
 }
 
-void checar_tipo(Player* p) {
+void checar_tipo(Player* p) { /*dinamizando os cenarios de acordo com os tipos que tem*/
     char tipo_atual = p->posicao->tipo;
     int escolha, acaso;
 
