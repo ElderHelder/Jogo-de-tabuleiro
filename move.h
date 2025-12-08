@@ -33,7 +33,7 @@ puts("nao va para baixo");
     switch(casa) {
 
         case 7: // Núcleo-X
-            printf("%s chegou no núcleo-x com recursos suficientes e venceu!\n",
+            printf("%s chegou no núcleo-x com recursos suficientes para vencer o chefao e venceu!\n",
                    p->id == 1 ? "herói" : "vilão");
             exit(0);
 
